@@ -26,6 +26,15 @@ document.getElementById('hamburger')?.addEventListener('click', () => {
 function closeNav(){ navLinks.classList.remove('open'); backdrop?.classList.remove('open'); }
 backdrop?.addEventListener('click', closeNav);
 navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeNav));
+document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dd = btn.closest('.dropdown');
+    document.querySelectorAll('.dropdown').forEach(d => { if (d !== dd) d.classList.remove('open'); });
+    dd.classList.toggle('open');
+  });
+});
+document.addEventListener('click', () => document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open')));
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
