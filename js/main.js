@@ -351,9 +351,11 @@ const MODES = { focus: 25*60, short: 5*60, long: 15*60 };
 const LABELS = { focus: 'Focus session', short: 'Short break', long: 'Long break' };
 
 function updateTimerDisplay() {
+  const el = $('#timerDisplay');
+  if (!el) return;
   const m = Math.floor(timerSeconds / 60);
   const s = timerSeconds % 60;
-  $('#timerDisplay').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  el.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
   document.title = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} · ICT Hub`;
 }
 updateTimerDisplay();
