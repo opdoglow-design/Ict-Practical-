@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyFlow HSC — Routine, MCQ Arena, Concept Cards & Smart Picker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="brand">
+        <h1>StudyFlow HSC</h1>
+        <p>Class 11–12 Smart Picker • Routine • MCQ Trainer • Concepts</p>
+      </div>
+      <div class="controls">
+        <span class="status-badge" id="jsStatus">JS: Waiting...</span>
+        <button type="button" class="btn" id="themeBtn">Toggle Theme</button>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button type="button" class="tab active" id="tab-picker" data-tab="picker">1. Smart Picker</button>
+      <button type="button" class="tab" id="tab-routine" data-tab="routine">2. Daily Routine</button>
+      <button type="button" class="tab" id="tab-mcq" data-tab="mcq">3. MCQ Trainer</button>
+      <button type="button" class="tab" id="tab-concepts" data-tab="concepts">4. Concept Cards</button>
+    </div>
+
+    <!-- 1. SMART PICKER -->
+    <section id="sec-picker" class="section active">
+      <div class="card">
+        <h2>What Should I Study Right Now?</h2>
+        <p class="sub">Pick your time, energy, and goal to get a quick study plan.</p>
+
+        <div class="row-grid">
+          <div>
+            <span class="group-label">Time</span>
+            <div class="chips" id="timeChips">
+              <button type="button" class="chip active" data-group="time" data-val="30m">30 Mins</button>
+              <button type="button" class="chip" data-group="time" data-val="1h">1 Hour</button>
+              <button type="button" class="chip" data-group="time" data-val="2h">2 Hours</button>
+            </div>
+          </div>
+          <div>
+            <span class="group-label">Energy</span>
+            <div class="chips" id="energyChips">
+              <button type="button" class="chip" data-group="energy" data-val="low">Low</button>
+              <button type="button" class="chip active" data-group="energy" data-val="mid">Normal</button>
+              <button type="button" class="chip" data-group="energy" data-val="high">High</button>
+            </div>
+          </div>
+          <div>
+            <span class="group-label">Focus</span>
+            <div class="chips" id="focusChips">
+              <button type="button" class="chip active" data-group="focus" data-val="concept">Concepts</button>
+              <button type="button" class="chip" data-group="focus" data-val="mcq">MCQs</button>
+              <button type="button" class="chip" data-group="focus" data-val="revise">Revision</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="generatePlanBtn">Generate Study Plan</button>
+        <div class="result-box" id="planOutput"></div>
+      </div>
+    </section>
+
+    <!-- 2. DAILY ROUTINE -->
+    <section id="sec-routine" class="section">
+      <div class="card">
+        <h2>Daily Study Routine</h2>
+        <p class="sub">Add study blocks and click a task to mark it done.</p>
+
+        <div class="form-row">
+          <input type="time" id="rTime" class="input" style="max-width: 140px;" value="19:30" />
+          <input type="text" id="rTask" class="input" placeholder="Enter subject or task..." />
+          <select id="rType" class="select">
+            <option value="Self Study">Self Study</option>
+            <option value="College">College</option>
+            <option value="Coaching">Coaching</option>
+          </select>
+          <button type="button" class="btn-primary" id="addRoutineBtn">Add</button>
+        </div>
+
+        <div id="routineList"></div>
+      </div>
+    </section>
+
+    <!-- 3. MCQ TRAINER -->
+    <section id="sec-mcq" class="section">
+      <div class="card">
+        <div class="mcq-header">
+          <span id="mcqMeta">Question 1 of 5</span>
+          <span id="mcqScore">Score: 0 / 0</span>
+        </div>
+        <div class="q-box" id="mcqQuestion"></div>
+        <div class="opts" id="mcqOptions"></div>
+        <div class="exp" id="mcqExp"></div>
+        <button type="button" class="btn-primary" id="nextMcqBtn">Next Question</button>
+      </div>
+    </section>
+
+    <!-- 4. CONCEPT CARDS -->
+    <section id="sec-concepts" class="section">
+      <div class="card">
+        <h2>HSC Concept Cards</h2>
+        <p class="sub">Filter key concepts across Civics, Economics, and ICT.</p>
+        <div class="chips" style="margin-bottom: 1rem;" id="catChips">
+          <button type="button" class="chip active" data-cat="all">All</button>
+          <button type="button" class="chip" data-cat="Civics">Civics</button>
+          <button type="button" class="chip" data-cat="Economics">Economics</button>
+          <button type="button" class="chip" data-cat="ICT">ICT</button>
+        </div>
+        <div class="concepts" id="conceptList"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+            </html>
+            
