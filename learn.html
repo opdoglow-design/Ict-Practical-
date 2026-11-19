@@ -20,7 +20,7 @@
 
   <nav class="navbar">
     <div class="nav-inner">
-      <div class="logo"><div class="logo-icon">I</div> ICT Hub</div>
+      <a href="index.html" class="logo"><div class="logo-icon">I</div> ICT Hub</a>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <div class="dropdown">
@@ -71,6 +71,10 @@
       <div class="search-bar">
         <span class="si">🔍</span>
         <input id="topicSearch" type="text" placeholder="Search topics or lessons..." />
+      </div>
+      <div style="text-align:center;margin-bottom:16px;">
+        <button class="btn btn-ghost btn-sm" id="randomTopic">🎲 Random topic</button>
+        <button class="btn btn-ghost btn-sm" id="markAll">✓ Mark all complete</button>
       </div>
       <div class="topics-grid" id="topicsGrid"></div>
     </div>
