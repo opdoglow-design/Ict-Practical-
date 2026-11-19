@@ -29,12 +29,25 @@ $('#themeToggle')?.addEventListener('click', () => {
 // ---------- Nav drawer ----------
 const navLinks = $('#navLinks');
 const backdrop = $('#navBackdrop');
-$('#hamburger')?.addEventListener('click', () => {
-  navLinks.classList.add('open'); backdrop.classList.add('open');
+const hamburger = $('#hamburger');
+hamburger?.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  backdrop.classList.toggle('open', open);
+  if (hamburger) hamburger.textContent = open ? '✕' : '☰';
 });
+function closeNav() { navLinks.classList.remove('open'); backdrop.classList.remove('open'); if (hamburger) hamburger.textContent = '☰'; }
 function closeNav() { navLinks.classList.remove('open'); backdrop.classList.remove('open'); }
 backdrop?.addEventListener('click', closeNav);
 navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+// ---------- Nav enhancements ----------
+window.addEventListener('scroll', () => {
+  document.querySelector('.navbar')?.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+// highlight dropdown toggles containing active link
+$$('.dropdown').forEach(dd => {
+  if (dd.querySelector('a.active')) dd.querySelector('.dropdown-toggle')?.classList.add('active');
+});
 
 // ---------- Dropdowns ----------
 $$('.dropdown-toggle').forEach(btn => {
