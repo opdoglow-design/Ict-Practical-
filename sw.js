@@ -1,6 +1,6 @@
 const CACHE = 'ict-hub-v2';
 const ASSETS = [
-  './', './index.html', './learn.html', './practice.html', './tools.html', './quiz.html', './flashcards.html',
+  './', './index.html', './learn.html', './practice.html', './quiz.html', './flashcards.html',
   './css/style.css', './js/data.js', './js/main.js', './js/quiz.js', './js/flashcards.js',
   './manifest.json'
 ];
