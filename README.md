@@ -4,13 +4,16 @@ An interactive, attractive study companion for ICT students (Class 11–12 and b
 
 ## ✨ Features
 - 8 ICT topics with lessons (Hardware, Software, Networks, Cybersecurity, Web, Databases, Programming, AI)
-- Interactive quizzes with instant feedback and review
-- 20 flashcards with flip animation + shuffle
+- Interactive quizzes with instant feedback, scoring and review
+- 20 flashcards with flip animation, shuffle and keyboard nav
 - 25+ term glossary with search
-- Progress tracking (localStorage)
+- Progress tracking, bookmarks and personal notes (localStorage)
+- Study dashboard with streaks, Pomodoro timer and achievements
+- Text-to-speech for lessons
 - Dark / Light theme
-- Fully responsive
-- Offline-ready
+- Fully responsive (mobile + desktop)
+- PWA: installable, offline-ready via service worker
+- Accessible keyboard navigation
 
 ## 🚀 Run locally
 Just open `index.html` in any browser. No install needed.
