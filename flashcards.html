@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#7c5cff" />
   <style>
     .flashcard { perspective: 1000px; width: 100%; max-width: 420px; height: 240px; margin: 0 auto; cursor: pointer; }
     .flashcard-inner { position: relative; width: 100%; height: 100%; transition: transform .6s; transform-style: preserve-3d; }
@@ -34,9 +36,11 @@
       </div>
       <div class="nav-actions">
         <button class="icon-btn" id="themeToggle">🌙</button>
+        <button class="hamburger icon-btn" id="hamburger" aria-label="Menu">☰</button>
       </div>
     </div>
   </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
 
   <section>
     <div class="container">
