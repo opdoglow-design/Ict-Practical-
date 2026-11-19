@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice — ICT Learning Hub</title>
+  <meta name="description" content="Practice ICT with quizzes and flashcards." />
+  <meta name="author" content="Muhid Al Hasan" />
+  <meta name="theme-color" content="#7c5cff" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+  <div class="grid-noise"></div>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="logo"><div class="logo-icon">I</div> ICT Hub</div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">Learn ▾</button>
+          <div class="dropdown-menu">
+            <a href="learn.html#topics">Topics</a>
+            <a href="learn.html#glossary">Glossary</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">Practice ▾</button>
+          <div class="dropdown-menu">
+            <a href="practice.html#quiz">Quick Quiz</a>
+            <a href="quiz.html">Full Quiz</a>
+            <a href="flashcards.html">Flashcards</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">Tools ▾</button>
+          <div class="dropdown-menu">
+            <a href="tools.html#dashboard">Dashboard</a>
+            <a href="tools.html#timer">Pomodoro</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">More ▾</button>
+          <div class="dropdown-menu">
+            <a href="index.html#features">Features</a>
+            <a href="index.html">About</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <button class="hamburger icon-btn" id="hamburger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <header class="hero" style="padding-bottom:20px;">
+    <div class="hero-content">
+      <span class="eyebrow">🧠 Practice</span>
+      <h1>Test Your <span class="grad">ICT Knowledge</span></h1>
+      <p>Quick quiz, full quiz and flashcards to reinforce learning.</p>
+      <div class="hero-cta">
+        <a href="quiz.html" class="btn btn-primary">Full Quiz →</a>
+        <a href="flashcards.html" class="btn btn-ghost">Flashcards</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="quiz">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="tag">🧠 Test Yourself</span>
+        <h2>Quick Quiz Preview</h2>
+        <p>Try a sample question right here.</p>
+      </div>
+      <div class="quiz-preview">
+        <div>
+          <div class="quiz-q" id="previewQ">Loading...</div>
+          <div class="quiz-opts" id="previewOpts"></div>
+          <p id="previewFeedback" style="margin-top:12px;font-weight:600;"></p>
+        </div>
+        <div style="text-align:center;">
+          <div class="ring">
+            <svg width="90" height="90"><circle cx="45" cy="45" r="39" stroke="var(--card-2)" stroke-width="9" fill="none"/><circle id="ringCircle2" cx="45" cy="45" r="39" stroke="var(--accent)" stroke-width="9" fill="none" stroke-dasharray="245" stroke-dashoffset="245" stroke-linecap="round"/></svg>
+            <div class="center" id="ringText2">0%</div>
+          </div>
+          <p style="color:var(--muted);margin-top:12px;font-size:.9rem;">Your overall progress</p>
+          <a href="quiz.html" class="btn btn-primary" style="margin-top:16px;">Full Quiz →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 ICT Learning Hub</p>
+      <p class="credit">Made by Muhid Al Hasan</p>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" style="position:relative;">
+      <button class="icon-btn close" id="modalClose">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
