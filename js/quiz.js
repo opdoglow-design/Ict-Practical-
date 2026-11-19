@@ -22,12 +22,21 @@ initTheme();
 // Nav drawer
 const navLinks = document.querySelector('.nav-links');
 const backdrop = document.getElementById('navBackdrop');
-document.getElementById('hamburger')?.addEventListener('click', () => {
-  navLinks.classList.add('open'); backdrop?.classList.add('open');
+const hamburger = document.getElementById('hamburger');
+hamburger?.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  backdrop?.classList.toggle('open', open);
+  if (hamburger) hamburger.textContent = open ? '✕' : '☰';
 });
-function closeNav(){ navLinks.classList.remove('open'); backdrop?.classList.remove('open'); }
+function closeNav(){ navLinks.classList.remove('open'); backdrop?.classList.remove('open'); if (hamburger) hamburger.textContent = '☰'; }
 backdrop?.addEventListener('click', closeNav);
 navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeNav));
+window.addEventListener('scroll', () => {
+  document.querySelector('.navbar')?.classList.toggle('scrolled', window.scrollY > 8);
+}, { passive: true });
+document.querySelectorAll('.dropdown').forEach(dd => {
+  if (dd.querySelector('a.active')) dd.querySelector('.dropdown-toggle')?.classList.add('active');
+});
 // Dropdowns
 document.querySelectorAll('.dropdown-toggle').forEach(btn => {
   btn.addEventListener('click', (e) => {
