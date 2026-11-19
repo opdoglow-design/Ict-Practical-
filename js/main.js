@@ -117,8 +117,9 @@ function openTopic(id) {
     <ol style="padding-left:18px;display:grid;gap:6px;">
       ${t.content.map(c => `<li style="line-height:1.5;">${c}</li>`).join('')}
     </ol>
-    <div style="margin-top:14px;">
+    <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
       <button class="btn btn-primary" id="markDone">Mark as Completed</button>
+      <button class="btn btn-ghost" id="printBtn">🖨️ Print</button>
     </div>
   `;
   $('#modalBackdrop').classList.add('open');
@@ -131,6 +132,29 @@ function openTopic(id) {
     if (!pr.completed.includes(id)) { pr.completed.push(id); setProgress(pr); toast('Marked complete!'); }
     btn.textContent = '✓ Completed'; btn.disabled = true;
   });
+  $('#printBtn')?.addEventListener('click', () => window.print());
+}
+
+// Random topic + mark all
+$('#randomTopic')?.addEventListener('click', () => {
+  const t = TOPICS[Math.floor(Math.random() * TOPICS.length)];
+  openTopic(t.id);
+});
+$('#markAll')?.addEventListener('click', () => {
+  const p = getProgress();
+  TOPICS.forEach(t => { if (!p.completed.includes(t.id)) { p.completed.push(t.id); p.studied += t.lessons; } });
+  setProgress(p);
+  toast('All topics marked complete!');
+});
+
+// Continue where you left off
+const currentPage = (location.pathname.split('/').pop() || 'index.html');
+if (currentPage !== 'index.html') localStorage.setItem('ict-lastpage', currentPage);
+const lastPage = localStorage.getItem('ict-lastpage');
+if (lastPage && lastPage !== 'index.html' && $('#continueBanner')) {
+  const link = $('#continueLink');
+  if (link) { link.href = lastPage; link.textContent = 'Continue: ' + lastPage.replace('.html','') + ' →'; }
+  $('#continueBanner').style.display = 'block';
 }
 $('#modalClose')?.addEventListener('click', () => $('#modalBackdrop').classList.remove('open'));
 $('#modalBackdrop')?.addEventListener('click', e => { if (e.target === $('#modalBackdrop')) $('#modalBackdrop').classList.remove('open'); });
@@ -213,6 +237,16 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { $('#modalBackdrop')?.classList.remove('open'); closeNav(); }
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
   if (e.key === 't' || e.key === 'T') $('#themeToggle')?.click();
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    e.preventDefault();
+    const inp = document.querySelector('.search-bar input');
+    if (inp) inp.focus();
+  }
+  if (e.key === '/' ) {
+    e.preventDefault();
+    const inp = document.querySelector('.search-bar input');
+    if (inp) inp.focus();
+  }
 });
 
 // ---------- Service Worker ----------
