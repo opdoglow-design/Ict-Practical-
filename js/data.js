@@ -152,6 +152,135 @@ window.TOPICS = [
       "Big data and analytics drive decisions.",
       "Ethics, bias and responsible AI."
     ]
+  },
+  {
+    id: "cloud",
+    icon: "☁️",
+    color: "#2f81f7",
+    title: "Cloud Computing",
+    desc: "IaaS, PaaS, SaaS, deployment models and cloud security.",
+    lessons: 6,
+    level: "Intermediate",
+    content: [
+      "Cloud computing delivers computing services over the Internet.",
+      "Service models: IaaS, PaaS, SaaS.",
+      "Deployment: public, private, hybrid, community.",
+      "Benefits: scalability, cost, availability.",
+      "Cloud security: IAM, encryption, shared responsibility.",
+      "Examples: AWS, Azure, Google Cloud."
+    ]
+  },
+  {
+    id: "iot",
+    icon: "📡",
+    color: "#39d353",
+    title: "Internet of Things (IoT)",
+    desc: "Connected devices, sensors, smart systems and IoT security.",
+    lessons: 5,
+    level: "Intermediate",
+    content: [
+      "IoT connects everyday objects to the Internet.",
+      "Components: sensors, actuators, connectivity, data processing.",
+      "Smart home, smart city, industrial IoT.",
+      "Protocols: MQTT, CoAP, HTTP.",
+      "IoT security challenges and best practices."
+    ]
+  },
+  {
+    id: "ecom",
+    icon: "🛒",
+    color: "#f472b6",
+    title: "E-Commerce",
+    desc: "Online business models, payments, security and logistics.",
+    lessons: 5,
+    level: "Beginner",
+    content: [
+      "E-commerce = buying/selling goods online.",
+      "Models: B2B, B2C, C2C, C2B.",
+      "Payment gateways and digital wallets.",
+      "Security: SSL, PCI-DSS, fraud prevention.",
+      "Logistics, inventory and customer experience."
+    ]
+  },
+  {
+    id: "multimedia",
+    icon: "🎬",
+    color: "#fbbf24",
+    title: "Multimedia",
+    desc: "Audio, video, images, compression and formats.",
+    lessons: 5,
+    level: "Beginner",
+    content: [
+      "Multimedia combines text, audio, images, video.",
+      "Image formats: JPEG, PNG, GIF, SVG.",
+      "Audio: MP3, WAV, AAC. Video: MP4, AVI, MKV.",
+      "Compression: lossy vs lossless.",
+      "Streaming and buffering basics."
+    ]
+  },
+  {
+    id: "mobile",
+    icon: "📱",
+    color: "#a78bfa",
+    title: "Mobile Computing",
+    desc: "Mobile OS, apps, connectivity and mobile security.",
+    lessons: 5,
+    level: "Beginner",
+    content: [
+      "Mobile computing = computing on the go.",
+      "Mobile OS: Android, iOS.",
+      "Connectivity: Wi-Fi, 4G/5G, Bluetooth.",
+      "App development basics: native vs hybrid.",
+      "Mobile security: app permissions, device encryption."
+    ]
+  },
+  {
+    id: "greenit",
+    icon: "🌱",
+    color: "#34d399",
+    title: "Green IT",
+    desc: "Energy-efficient computing and sustainable technology.",
+    lessons: 4,
+    level: "Beginner",
+    content: [
+      "Green IT reduces environmental impact of technology.",
+      "Energy-efficient hardware and data centers.",
+      "E-waste management and recycling.",
+      "Virtualization and cloud for sustainability.",
+      "Sustainable software practices."
+    ]
+  },
+  {
+    id: "bigdata",
+    icon: "📊",
+    color: "#60a5fa",
+    title: "Big Data",
+    desc: "Volume, velocity, variety and data analytics.",
+    lessons: 5,
+    level: "Advanced",
+    content: [
+      "Big data = extremely large datasets.",
+      "The 3 Vs: volume, velocity, variety (plus veracity, value).",
+      "Storage: Hadoop, data lakes.",
+      "Processing: MapReduce, Spark.",
+      "Analytics and visualization for insights."
+    ]
+  },
+  {
+    id: "robotics",
+    icon: "🤖",
+    color: "#f472b6",
+    title: "Robotics Basics",
+    desc: "Sensors, actuators, control systems and automation.",
+    lessons: 5,
+    level: "Intermediate",
+    content: [
+      "Robotics combines hardware, software and mechanics.",
+      "Components: sensors, actuators, controller.",
+      "Types: industrial, service, mobile robots.",
+      "Programming: motion, path planning.",
+      "Automation and AI in robotics."
+    ]
   }
 ];
 
@@ -180,7 +309,12 @@ window.GLOSSARY = [
   { term: "VPN", def: "Virtual Private Network — secure tunnel over public net." },
   { term: "Wi-Fi", def: "Wireless networking technology." },
   { term: "XML", def: "Extensible Markup Language for data exchange." },
-  { term: "Zero-day", def: "Unknown vulnerability exploited before a fix." }
+  { term: "Zero-day", def: "Unknown vulnerability exploited before a fix." },
+  { term: "Cloud", def: "On-demand computing resources over the Internet." },
+  { term: "IoT", def: "Network of connected physical devices." },
+  { term: "API", def: "Application Programming Interface." },
+  { term: "SSD", def: "Solid State Drive — fast storage." },
+  { term: "GPU", def: "Graphics Processing Unit." }
 ];
 
 window.QUIZ = [
@@ -198,7 +332,12 @@ window.QUIZ = [
   { q: "SQL command to retrieve data?", opts: ["INSERT","UPDATE","SELECT","DELETE"], ans: 2, topic: "db" },
   { q: "Which is a loop?", opts: ["if","switch","for","function"], ans: 2, topic: "programming" },
   { q: "OOP stands for?", opts: ["Object Oriented Programming","Open Online Protocol","Optimal Output Process","Object Operation Plan"], ans: 0, topic: "programming" },
-  { q: "ML type with labeled data?", opts: ["Unsupervised","Supervised","Reinforcement","None"], ans: 1, topic: "ai" }
+  { q: "ML type with labeled data?", opts: ["Unsupervised","Supervised","Reinforcement","None"], ans: 1, topic: "ai" },
+  { q: "Cloud service model for apps?", opts: ["IaaS","PaaS","SaaS","DaaS"], ans: 1, topic: "cloud" },
+  { q: "IoT protocol for lightweight messaging?", opts: ["HTTP","FTP","MQTT","SMTP"], ans: 2, topic: "iot" },
+  { q: "E-commerce model B2C means?", opts: ["Business to Business","Business to Consumer","Consumer to Consumer","Consumer to Business"], ans: 1, topic: "ecom" },
+  { q: "Lossless compression format?", opts: ["JPEG","MP3","PNG","MPEG"], ans: 2, topic: "multimedia" },
+  { q: "Mobile OS example?", opts: ["Windows","Linux","Android","macOS"], ans: 2, topic: "mobile" }
 ];
 
 window.FLASHCARDS = [
@@ -221,5 +360,9 @@ window.FLASHCARDS = [
   { front: "GPU", back: "Graphics Processing Unit.", cat: "Hardware" },
   { front: "BIOS", back: "Basic Input/Output System.", cat: "Hardware" },
   { front: "MFA", back: "Multi-Factor Authentication.", cat: "Security" },
-  { front: "IoT", back: "Internet of Things.", cat: "Emerging" }
+  { front: "IoT", back: "Internet of Things.", cat: "Emerging" },
+  { front: "Cloud", back: "On-demand computing resources over the Internet.", cat: "Emerging" },
+  { front: "SaaS", back: "Software as a Service.", cat: "Emerging" },
+  { front: "PaaS", back: "Platform as a Service.", cat: "Emerging" },
+  { front: "IaaS", back: "Infrastructure as a Service.", cat: "Emerging" }
 ];
