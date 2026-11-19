@@ -18,6 +18,19 @@ function initTheme() {
 }
 initTheme();
 
+const navLinks = document.querySelector('.nav-links');
+const backdrop = document.getElementById('navBackdrop');
+document.getElementById('hamburger')?.addEventListener('click', () => {
+  navLinks.classList.add('open'); backdrop?.classList.add('open');
+});
+function closeNav(){ navLinks.classList.remove('open'); backdrop?.classList.remove('open'); }
+backdrop?.addEventListener('click', closeNav);
+navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeNav));
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+
 let cards = [...FLASHCARDS];
 let index = 0;
 const cardEl = $('#flashcard');
