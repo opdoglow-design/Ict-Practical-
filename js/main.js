@@ -77,10 +77,15 @@ const streakCount = updateStreak();
 
 // ---------- Stats ----------
 function updateStats() {
+  const lessons = TOPICS.reduce((a,t)=>a+t.lessons,0);
   $('#statTopics') && ($('#statTopics').textContent = TOPICS.length);
-  $('#statLessons') && ($('#statLessons').textContent = TOPICS.reduce((a,t)=>a+t.lessons,0));
+  $('#statLessons') && ($('#statLessons').textContent = lessons);
   $('#statQuestions') && ($('#statQuestions').textContent = QUIZ.length);
   $('#statCards') && ($('#statCards').textContent = FLASHCARDS.length);
+  $('#hpTopics') && ($('#hpTopics').textContent = TOPICS.length);
+  $('#hpLessons') && ($('#hpLessons').textContent = lessons);
+  $('#hpQs') && ($('#hpQs').textContent = QUIZ.length);
+  $('#hpCards') && ($('#hpCards').textContent = FLASHCARDS.length);
 }
 updateStats();
 
