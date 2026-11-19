@@ -36,6 +36,17 @@ function closeNav() { navLinks.classList.remove('open'); backdrop.classList.remo
 backdrop?.addEventListener('click', closeNav);
 navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
 
+// ---------- Dropdowns ----------
+$$('.dropdown-toggle').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dd = btn.closest('.dropdown');
+    $$('.dropdown').forEach(d => { if (d !== dd) d.classList.remove('open'); });
+    dd.classList.toggle('open');
+  });
+});
+document.addEventListener('click', () => $$('.dropdown').forEach(d => d.classList.remove('open')));
+
 // ---------- Storage helpers ----------
 function getProgress() {
   try { return JSON.parse(localStorage.getItem(PROG_KEY)) || { completed: [], quizBest: 0, studied: 0, cardsViewed: 0 }; }
