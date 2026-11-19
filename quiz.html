@@ -56,11 +56,20 @@
         <p>Answer all questions, then submit to see your score and review.</p>
       </div>
 
-      <div class="grid-2" style="margin-bottom:20px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:20px;">
         <div>
           <label style="color:var(--muted);font-size:.85rem;">Filter by topic</label>
           <select id="topicFilter" style="width:100%;padding:10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text);margin-top:6px;">
             <option value="all">All topics</option>
+          </select>
+        </div>
+        <div>
+          <label style="color:var(--muted);font-size:.85rem;">Difficulty</label>
+          <select id="diffFilter" style="width:100%;padding:10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text);margin-top:6px;">
+            <option value="all">All levels</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
           </select>
         </div>
         <div>
@@ -72,6 +81,17 @@
           </select>
         </div>
       </div>
+      <div style="display:flex;gap:10px;justify-content:center;margin-bottom:16px;flex-wrap:wrap;">
+        <label style="display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;">
+          <input type="checkbox" id="shuffleQ" checked /> Shuffle questions
+        </label>
+        <label style="display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;">
+          <input type="checkbox" id="shuffleO" checked /> Shuffle options
+        </label>
+        <label style="display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;">
+          <input type="checkbox" id="timerOn" /> 30s per question
+        </label>
+      </div>
 
       <div id="quizContainer"></div>
 
@@ -80,6 +100,7 @@
         <button class="btn btn-ghost" id="resetQuiz">Reset</button>
       </div>
 
+      <div id="historyBox" style="margin-top:16px;text-align:center;color:var(--muted);font-size:.85rem;"></div>
       <div id="resultBox" class="hidden" style="margin-top:30px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;text-align:center;">
         <h3 id="resultTitle"></h3>
         <div style="font-size:3rem;font-weight:900;margin:10px 0;" id="resultScore"></div>
