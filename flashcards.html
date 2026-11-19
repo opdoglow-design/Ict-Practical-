@@ -75,6 +75,16 @@
         </div>
       </div>
 
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;">
+        <select id="fcCat" style="padding:8px 10px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--text);">
+          <option value="all">All categories</option>
+        </select>
+        <select id="fcMode" style="padding:8px 10px;border-radius:8px;background:var(--card);border:1px solid var(--border);color:var(--text);">
+          <option value="all">All cards</option>
+          <option value="unknown">Unknown only</option>
+          <option value="known">Known only</option>
+        </select>
+      </div>
       <div class="fc-controls">
         <button class="btn btn-ghost" id="prevCard">← Prev</button>
         <button class="btn btn-primary" id="flipCard">Flip</button>
@@ -82,8 +92,20 @@
         <button class="btn btn-ghost" id="shuffleCards">🔀 Shuffle</button>
       </div>
       <div class="fc-progress" id="fcProgress">Card 1 of 20</div>
+      <div style="max-width:420px;margin:12px auto 0;">
+        <div style="display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted);margin-bottom:4px;">
+          <span>Known: <strong id="fcKnownCount">0</strong></span>
+          <span>Unknown: <strong id="fcUnknownCount">0</strong></span>
+        </div>
+        <div class="progress-bar"><div id="fcProgressBar" style="width:0%"></div></div>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap;">
+        <button class="btn btn-sm btn-ghost" id="markKnown">✓ Mark Known</button>
+        <button class="btn btn-sm btn-ghost" id="markUnknown">✗ Mark Unknown</button>
+        <button class="btn btn-sm btn-ghost" id="resetKnown">Reset progress</button>
+      </div>
 
-      <div style="max-width:420px;margin:30px auto 0;">
+      <div style="max-width:420px;margin:20px auto 0;">
         <input id="fcSearch" type="text" placeholder="Filter cards..." style="width:100%;padding:12px 16px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text);" />
       </div>
     </div>
