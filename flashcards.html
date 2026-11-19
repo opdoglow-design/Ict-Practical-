@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcards — ICT Learning Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .flashcard { perspective: 1000px; width: 100%; max-width: 420px; height: 240px; margin: 0 auto; cursor: pointer; }
+    .flashcard-inner { position: relative; width: 100%; height: 100%; transition: transform .6s; transform-style: preserve-3d; }
+    .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+    .flashcard-face { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 20px; display: grid; place-items: center; padding: 24px; text-align: center; border: 1px solid var(--border); box-shadow: var(--shadow); }
+    .flashcard-front { background: linear-gradient(135deg, var(--card), var(--card-2)); }
+    .flashcard-back { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; transform: rotateY(180deg); }
+    .flashcard-front h3 { font-size: 2.2rem; font-weight: 900; }
+    .flashcard-back p { font-size: 1.1rem; font-weight: 500; }
+    .fc-controls { display: flex; gap: 10px; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+    .fc-progress { text-align: center; color: var(--muted); margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="logo"><div class="logo-icon">I</div> ICT Hub</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#topics">Topics</a>
+        <a href="quiz.html">Full Quiz</a>
+        <a href="flashcards.html" class="active">Flashcards</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <span class="tag">🃏 Flashcards</span>
+        <h2>Quick Revision Cards</h2>
+        <p>Click a card to flip it. Use arrows or keyboard to navigate.</p>
+      </div>
+
+      <div class="flashcard" id="flashcard">
+        <div class="flashcard-inner">
+          <div class="flashcard-face flashcard-front"><h3 id="fcFront">Term</h3><p style="color:var(--muted);font-size:.85rem;margin-top:8px;">Click to reveal</p></div>
+          <div class="flashcard-face flashcard-back"><p id="fcBack">Definition</p></div>
+        </div>
+      </div>
+
+      <div class="fc-controls">
+        <button class="btn btn-ghost" id="prevCard">← Prev</button>
+        <button class="btn btn-primary" id="flipCard">Flip</button>
+        <button class="btn btn-ghost" id="nextCard">Next →</button>
+        <button class="btn btn-ghost" id="shuffleCards">🔀 Shuffle</button>
+      </div>
+      <div class="fc-progress" id="fcProgress">Card 1 of 20</div>
+
+      <div style="max-width:420px;margin:30px auto 0;">
+        <input id="fcSearch" type="text" placeholder="Filter cards..." style="width:100%;padding:12px 16px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text);" />
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 ICT Learning Hub</p>
+    <p class="credit">Made by Muhid Al Hasan</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/flashcards.js"></script>
+</body>
+</html>
