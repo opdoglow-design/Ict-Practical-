@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Quiz — ICT Learning Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="logo"><div class="logo-icon">I</div> ICT Hub</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#topics">Topics</a>
+        <a href="quiz.html" class="active">Full Quiz</a>
+        <a href="flashcards.html">Flashcards</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <span class="tag">🧠 Quiz</span>
+        <h2>Test Your ICT Knowledge</h2>
+        <p>Answer all questions, then submit to see your score and review.</p>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:20px;">
+        <div>
+          <label style="color:var(--muted);font-size:.85rem;">Filter by topic</label>
+          <select id="topicFilter" style="width:100%;padding:10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text);margin-top:6px;">
+            <option value="all">All topics</option>
+          </select>
+        </div>
+        <div>
+          <label style="color:var(--muted);font-size:.85rem;">Mode</label>
+          <select id="modeFilter" style="width:100%;padding:10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--border);color:var(--text);margin-top:6px;">
+            <option value="all">All questions</option>
+            <option value="10">Random 10</option>
+            <option value="5">Random 5</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="quizContainer"></div>
+
+      <div style="display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="submitQuiz">Submit Quiz</button>
+        <button class="btn btn-ghost" id="resetQuiz">Reset</button>
+      </div>
+
+      <div id="resultBox" class="hidden" style="margin-top:30px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:30px;text-align:center;">
+        <h3 id="resultTitle"></h3>
+        <div style="font-size:3rem;font-weight:900;margin:10px 0;" id="resultScore"></div>
+        <p id="resultMsg" style="color:var(--muted);"></p>
+        <div id="reviewList" style="text-align:left;margin-top:20px;display:grid;gap:12px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 ICT Learning Hub</p>
+    <p class="credit">Made by Muhid Al Hasan</p>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
