@@ -54,7 +54,15 @@ input, textarea, select { font-family: inherit; }
   height: var(--nav-h);
   background: var(--bg-soft);
   border-bottom: 1px solid var(--border);
+  transition: box-shadow .2s;
 }
+.navbar.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
+.dropdown-toggle::after {
+  content: '▾'; font-size: .7rem; opacity: .7; transition: transform .2s;
+  display: inline-block;
+}
+.dropdown.open .dropdown-toggle::after { transform: rotate(180deg); }
+.dropdown-toggle.active { color: var(--accent); font-weight: 600; }
 .nav-inner {
   max-width: var(--maxw); margin: 0 auto; padding: 0 20px; height: 100%;
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
@@ -246,6 +254,10 @@ footer .links { display: flex; gap: 12px; justify-content: center; margin-top: 1
   padding: 4px; min-width: 170px; display: none; z-index: 210;
 }
 .dropdown.open .dropdown-menu { display: block; }
+@media (min-width: 861px) {
+  .dropdown:hover .dropdown-menu { display: block; }
+  .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+}
 .dropdown-menu a { display: block; padding: 8px 10px; border-radius: 6px; color: var(--muted); font-size: .88rem; }
 .dropdown-menu a:hover { background: var(--card); color: var(--text); }
 
