@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn — ICT Learning Hub</title>
+  <meta name="description" content="ICT topics and glossary for ICT students." />
+  <meta name="author" content="Muhid Al Hasan" />
+  <meta name="theme-color" content="#7c5cff" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+  <div class="grid-noise"></div>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="logo"><div class="logo-icon">I</div> ICT Hub</div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">Learn ▾</button>
+          <div class="dropdown-menu">
+            <a href="learn.html#topics">Topics</a>
+            <a href="learn.html#glossary">Glossary</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">Practice ▾</button>
+          <div class="dropdown-menu">
+            <a href="practice.html#quiz">Quick Quiz</a>
+            <a href="quiz.html">Full Quiz</a>
+            <a href="flashcards.html">Flashcards</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">Tools ▾</button>
+          <div class="dropdown-menu">
+            <a href="tools.html#dashboard">Dashboard</a>
+            <a href="tools.html#timer">Pomodoro</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button">More ▾</button>
+          <div class="dropdown-menu">
+            <a href="index.html#features">Features</a>
+            <a href="index.html">About</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <button class="hamburger icon-btn" id="hamburger" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <header class="hero" style="padding-bottom:20px;">
+    <div class="hero-content">
+      <span class="eyebrow">📚 Learn</span>
+      <h1>ICT <span class="grad">Topics & Glossary</span></h1>
+      <p>Eight core areas covering the full ICT syllabus, plus a searchable glossary of key terms.</p>
+    </div>
+  </header>
+
+  <section id="topics">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="tag">📚 Curriculum</span>
+        <h2>Explore ICT Topics</h2>
+        <p>Tap a card to read lessons, take notes and bookmark.</p>
+      </div>
+      <div class="search-bar">
+        <span class="si">🔍</span>
+        <input id="topicSearch" type="text" placeholder="Search topics or lessons..." />
+      </div>
+      <div class="topics-grid" id="topicsGrid"></div>
+    </div>
+  </section>
+
+  <section id="glossary">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="tag">📖 Reference</span>
+        <h2>ICT Glossary</h2>
+        <p>Key terms you need to know.</p>
+      </div>
+      <div class="search-bar">
+        <span class="si">🔍</span>
+        <input id="glossSearch" type="text" placeholder="Search terms..." />
+      </div>
+      <div class="glossary-list" id="glossList"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 ICT Learning Hub</p>
+      <p class="credit">Made by Muhid Al Hasan</p>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" style="position:relative;">
+      <button class="icon-btn close" id="modalClose">✕</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
