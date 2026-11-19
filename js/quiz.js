@@ -134,27 +134,28 @@ function render() {
 
 function startTimers() {
   clearTimer();
-  let idx = 0;
-  const tick = () => {
-    const el = document.querySelector(`.qtimer[data-qi="${idx}"]`);
-    if (!el) return;
-    timeLeft = +el.textContent;
-    if (timeLeft <= 0) {
-      // move next
-      idx++;
-      if (idx < questions.length) {
-        timeLeft = 30;
-        const nextEl = document.querySelector(`.qtimer[data-qi="${idx}"]`);
-        if (nextEl) nextEl.textContent = 30;
+  questions.forEach(q => { q.timeLeft = 30; });
+  timerInterval = setInterval(() => {
+    let any = false;
+    questions.forEach((q, i) => {
+      if (q.chosen !== null) return;
+      if (q.timeLeft > 0) {
+        q.timeLeft--;
+        const el = document.querySelector(`.qtimer[data-qi="${i}"]`);
+        if (el) el.textContent = q.timeLeft;
+        any = true;
       } else {
-        clearTimer();
+        const card = document.querySelector(`[data-qi="${i}"]`);
+        if (card && !card.classList.contains('timesup')) {
+          card.classList.add('timesup');
+          card.querySelectorAll('input').forEach(inp => inp.disabled = true);
+          const el = card.querySelector('.qtimer');
+          if (el) el.textContent = '0';
+        }
       }
-      return;
-    }
-    timeLeft--;
-    el.textContent = timeLeft;
-  };
-  timerInterval = setInterval(tick, 1000);
+    });
+    if (!any) clearTimer();
+  }, 1000);
 }
 function clearTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } }
 
